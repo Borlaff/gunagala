@@ -111,10 +111,12 @@ class ZodiacalLight(Sky):
 
     # Data from table 17, Leinert et al (1997).
     _llsun = np.array([0, 5 ,10, 15, 20, 25, 30, 35, 40, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180])
-    _beta = np.array([0, 5, 10, 15, 20, 25, 30, 45, 60, 75])
-    _zl_scale = np.array([[np.NaN, np.NaN, np.NaN, 3140, 1610, 985, 640, 275, 150, 100], \
-                          [np.NaN, np.NaN, np.NaN, 2940, 1540, 945, 625, 271, 150, 100], \
-                          [np.NaN, np.NaN, 4740, 2470, 1370, 865, 590, 264, 148, 100], \
+    _beta = np.array([0, 5, 10, 15, 20, 25, 30, 45, 60, 75])    
+    
+    # Sept 26, 2024. A. S. Borlaff - `np.NaN` was removed in the NumPy 2.0 release. Use `np.nan` instead.
+    _zl_scale = np.array([[np.nan, np.nan, np.nan, 3140, 1610, 985, 640, 275, 150, 100], \
+                          [np.nan, np.nan, np.nan, 2940, 1540, 945, 625, 271, 150, 100], \
+                          [np.nan, np.nan, 4740, 2470, 1370, 865, 590, 264, 148, 100], \
                           [11500, 6780, 3440, 1860, 1110, 755, 525, 251, 146, 100], \
                           [6400, 4480, 2410, 1410, 910, 635, 454, 237, 141, 99], \
                           [3840, 2830, 1730, 1100, 749, 545, 410, 223, 136, 97], \
@@ -131,6 +133,7 @@ class ZodiacalLight(Sky):
                           [179, 178, 165, 148, 137, 127, 116, 96, 79, 72], \
                           [196, 192, 179, 165, 151, 141, 131, 104, 82, 72], \
                           [230, 212, 195, 178, 163, 148, 134, 105, 83, 72]]).transpose()
+
 
     def __init__(self, **kwargs):
         # Pre-calculate zodiacal light spectrum for later use.
