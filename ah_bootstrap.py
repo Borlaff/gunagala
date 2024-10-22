@@ -33,7 +33,7 @@ latest version of this module.
 
 import contextlib
 import errno
-import imp
+from importlib import import_module as imp # import imp
 import io
 import locale
 import os
